@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Banco {
 
@@ -20,5 +21,11 @@ public class Banco {
 	public void setContas(List<Conta> contas) {
 		this.contas = contas;
 	}
+
+	public List<Cliente> getAllClientes() {
+        return contas.stream()
+                     .map(Conta::getCliente)
+                     .collect(Collectors.toList());
+    }
 
 }
